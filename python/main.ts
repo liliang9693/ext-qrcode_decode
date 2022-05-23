@@ -30,6 +30,7 @@ else:
         let w=parameter.W.code;
         let h=parameter.H.code;
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
+        
         Generator.addCode(`cap = cv2.VideoCapture(${num})`)
         Generator.addCode(`cap.set(cv2.CAP_PROP_FRAME_WIDTH, ${w})`)
         Generator.addCode(`cap.set(cv2.CAP_PROP_FRAME_HEIGHT, ${h})`)
@@ -43,38 +44,44 @@ else:
     export function readcapcapture(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
         Generator.addCode(`cv2.waitKey(10)\nqrimg_success, qrimg_src = cap.read()`)
-        Generator.addCode(`if screen_rotation: 
-        qrimg_src = cv2.rotate(qrimg_src, cv2.ROTATE_90_COUNTERCLOCKWISE)`)
-
 
     }
+/*
+    //% block="将摄像头图片横屏显示" blockType="command"
+    export function rotation(parameter: any, block: any) {
+
+        Generator.addCode(`qrimg_src = cv2.rotate(qrimg_src, cv2.ROTATE_90_COUNTERCLOCKWISE)`)
+
+        }
+
+*/
     //% block="---"
     export function noteSep1() {}
-
-    //% block="窗口设置 [SCREEN] 全屏[FULL]" blockType="command"
-    //% SCREEN.shadow="dropdown" SCREEN.options="SCREEN"
+/*
+    //% block="窗口设置 全屏[FULL]" blockType="command"
     //% FULL.shadow="dropdown" FULL.options="FULL"
     export function screensetting(parameter: any, block: any) {
-        let screen=parameter.SCREEN.code;
-        let full=parameter.SCREEN.code;
+        let full=parameter.FULL.code;
         if (full == "on"){
             Generator.addInit(`screeninit`,`cv2.namedWindow('qrwindows',cv2.WND_PROP_FULLSCREEN)\ncv2.setWindowProperty('qrwindows', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)`)
         }
-        Generator.addCode(`screen_rotation = ${screen}`)
+      
 
         }
+*/
 
-
-    //% block="显示窗口" blockType="command"
+    //% block="显示识别窗口" blockType="command"
     export function imshow(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
+        Generator.addInit(`namedWindow`,`cv2.namedWindow("qrwindows", cv2.WINDOW_NORMAL)`)
          Generator.addCode(`cv2.imshow('qrwindows', qrimg_src)\ncv2.waitKey(10)`)
 
 
     }
-    //% block="关闭窗口" blockType="command"
+    //% block="关闭识别窗口" blockType="command"
     export function imdestroy(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
+        Generator.addInit(`namedWindow`,`cv2.namedWindow("qrwindows", cv2.WINDOW_NORMAL)`)
         //Generator.addCode(`cv2.destroyWindow('qrwindows')`)
         Generator.addCode(`cv2.destroyAllWindows()`)
 
