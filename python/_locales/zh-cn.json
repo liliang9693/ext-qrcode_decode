@@ -1,0 +1,25 @@
+{
+    "qrcodedecode.VAL.all|menu": "原始输出",
+    "qrcodedecode.VAL.value|menu": "数据",
+    "qrcodedecode.VAL.type|menu": "编码类型",
+    "qrcodedecode.VAL.quality|menu": "质量",
+    "qrcodedecode.VAL.orientation|menu": "方向",
+    "qrcodedecode.VAL.x|menu": "矩形左上角x",
+    "qrcodedecode.VAL.y|menu": "矩形左上角y",
+    "qrcodedecode.VAL.w|menu": "矩形宽",
+    "qrcodedecode.VAL.h|menu": "矩形高",
+    "qrcodedecode.VAL.x1|menu": "X1",
+    "qrcodedecode.VAL.y1|menu": "Y1",
+    "qrcodedecode.VAL.x2|menu": "X2",
+    "qrcodedecode.VAL.y2|menu": "Y2",
+    "qrcodedecode.VAL.x3|menu": "X3",
+    "qrcodedecode.VAL.y3|menu": "Y3",
+    "qrcodedecode.VAL.x4|menu": "X4",
+    "qrcodedecode.VAL.y4|menu": "Y4",
+    "qrcodedecode.SCREEN.horizontal|menu": "横屏",
+    "qrcodedecode.SCREEN.vertical|menu": "竖屏",
+    "qrcodedecode.FULL.ON|menu": "开",
+    "qrcodedecode.FULL.OFF|menu": "关"
+
+
+}

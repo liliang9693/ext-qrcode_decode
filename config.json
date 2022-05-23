@@ -1,0 +1,26 @@
+{
+  "name": {
+    "zh-cn": "二维码解码",
+    "en": "QRCode Decode"
+  },
+  "description": {
+    "zh-cn": "Python模式中调用pyzbar库实现二维码解码",
+    "en": "QRCode Decode"
+  },
+  "author": "liliang",
+  "email": "969316753@qq.com",
+  "license": "MIT",
+  "isBoard": false,
+  "id": "qrcodedecode",
+  "platform": ["win","mac","web","linux"],
+  "version": "0.0.1",
+  "asset": {
+	"python": {
+		"dir": "python/",
+		"main": "main.ts",
+		"dependencies": {
+      "pyzbar":"0.1.9"
+      }
+  }
+}
+}
