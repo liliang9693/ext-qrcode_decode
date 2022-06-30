@@ -63,4 +63,5 @@ esp32        |             |              |             |
 ## Release Logs
 
 * V0.0.1  基础功能完成
+* V0.0.2  解决摄像头continu报错
 

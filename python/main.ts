@@ -36,7 +36,7 @@ else:
         Generator.addCode(`cap.set(cv2.CAP_PROP_FRAME_HEIGHT, ${h})`)
         Generator.addCode(`cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)`)
         Generator.addCode(`while not cap.isOpened():
-    continu`)
+    continue`)
 
     }
 
