@@ -34,6 +34,12 @@
 - 然后复制如下命令到终端中回车运行，等待代码执行完毕：   
  ```pip install pyzbar```
 
+
+
+**使用教程**：
+
+【新课标】信息科技跨学科案例-五年级 无人自助收银系统   https://mc.dfrobot.com.cn/thread-314329-1-1.html
+
 ## Blocks
 
 ![](./python/_images/blocks.png)
