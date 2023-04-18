@@ -23,27 +23,38 @@ else:
 
     //% block="初始化摄像头 编号[CAMNUM] 像素宽[W]高[H]" blockType="command"
     //% CAMNUM.shadow="number" CAMNUM.defl="0"
-    //% W.shadow="number" W.defl="320"
-    //% H.shadow="number" H.defl="240"
+    //% W.shadow="number" W.defl="240"
+    //% H.shadow="number" H.defl="320"
     export function readcap(parameter: any, block: any) {
         let num=parameter.CAMNUM.code;
         let w=parameter.W.code;
         let h=parameter.H.code;
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
         
+        // Generator.addCode(`cap = cv2.VideoCapture(${num})`)
+        // Generator.addCode(`cap.set(cv2.CAP_PROP_FRAME_WIDTH, ${w})`)
+        // Generator.addCode(`cap.set(cv2.CAP_PROP_FRAME_HEIGHT, ${h})`)
+        // Generator.addCode(`cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)`)
         Generator.addCode(`cap = cv2.VideoCapture(${num})`)
-        Generator.addCode(`cap.set(cv2.CAP_PROP_FRAME_WIDTH, ${w})`)
-        Generator.addCode(`cap.set(cv2.CAP_PROP_FRAME_HEIGHT, ${h})`)
-        Generator.addCode(`cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)`)
         Generator.addCode(`while not cap.isOpened():
     continue`)
+    Generator.addCode(`cap_w,cap_h=${w},${h}`)
+    Generator.addCode(`cv2.namedWindow("qrwindows",cv2.WND_PROP_FULLSCREEN)`)
+        
+    Generator.addCode(`cv2.setWindowProperty("qrwindows", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)`)
+    }
+    //% block="关闭摄像头" blockType="command"
+    export function colsecapcapture(parameter: any, block: any) {
+       
+        Generator.addCode(`cap.release()`)
 
     }
-
     //% block="读取摄像头一帧图片" blockType="command"
     export function readcapcapture(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
         Generator.addCode(`cv2.waitKey(10)\nqrimg_success, qrimg_src = cap.read()`)
+        Generator.addCode(`xmin, ymin, w, h = 250,100,cap_w,cap_h
+qrimg_src = qrimg_src[ymin:ymin+h, xmin:xmin+w]`)
 
     }
 /*
