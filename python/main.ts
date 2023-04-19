@@ -3,7 +3,7 @@
 namespace qrcodedecode{
 
 
-    //% block="读取本地图片[PATH]" blockType="command"
+    //% block="Read local image [PATH]" blockType="command"
     //% PATH.shadow="string" PATH.defl="qrcode.png"
     export function read(parameter: any, block: any) {
         let path=parameter.PATH.code;
@@ -21,7 +21,7 @@ else:
 
 
 
-    //% block="初始化摄像头 编号[CAMNUM] 像素宽[W]高[H]" blockType="command"
+    //% block="Initialize camera number [CAMNUM] pixel width [W] height [H]" blockType="command"
     //% CAMNUM.shadow="number" CAMNUM.defl="0"
     //% W.shadow="number" W.defl="240"
     //% H.shadow="number" H.defl="320"
@@ -43,13 +43,13 @@ else:
         
     Generator.addCode(`cv2.setWindowProperty("qrwindows", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)`)
     }
-    //% block="关闭摄像头" blockType="command"
+    //% block=""Close the camera" blockType="command"
     export function colsecapcapture(parameter: any, block: any) {
        
         Generator.addCode(`cap.release()`)
 
     }
-    //% block="读取摄像头一帧图片" blockType="command"
+    //% block="Read a frame from the camera" blockType="command"
     export function readcapcapture(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
         Generator.addCode(`cv2.waitKey(10)\nqrimg_success, qrimg_src = cap.read()`)
@@ -57,42 +57,23 @@ else:
 qrimg_src = qrimg_src[ymin:ymin+h, xmin:xmin+w]`)
 
     }
-/*
-    //% block="将摄像头图片横屏显示" blockType="command"
-    export function rotation(parameter: any, block: any) {
 
-        Generator.addCode(`qrimg_src = cv2.rotate(qrimg_src, cv2.ROTATE_90_COUNTERCLOCKWISE)`)
-
-        }
-
-*/
     //% block="---"
     export function noteSep1() {}
-/*
-    //% block="窗口设置 全屏[FULL]" blockType="command"
-    //% FULL.shadow="dropdown" FULL.options="FULL"
-    export function screensetting(parameter: any, block: any) {
-        let full=parameter.FULL.code;
-        if (full == "on"){
-            Generator.addInit(`screeninit`,`cv2.namedWindow('qrwindows',cv2.WND_PROP_FULLSCREEN)\ncv2.setWindowProperty('qrwindows', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)`)
-        }
-      
 
-        }
-*/
 
-    //% block="显示识别窗口" blockType="command"
+    //% block="Show recognition window" blockType="command"
     export function imshow(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
-        Generator.addInit(`namedWindow`,`cv2.namedWindow("qrwindows", cv2.WINDOW_NORMAL)`)
+        //Generator.addInit(`namedWindow`,`cv2.namedWindow("qrwindows", cv2.WINDOW_NORMAL)`)
          Generator.addCode(`cv2.imshow('qrwindows', qrimg_src)\ncv2.waitKey(10)`)
 
 
     }
-    //% block="关闭识别窗口" blockType="command"
+    //% block="Close recognition window" blockType="command"
     export function imdestroy(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
-        Generator.addInit(`namedWindow`,`cv2.namedWindow("qrwindows", cv2.WINDOW_NORMAL)`)
+        //Generator.addInit(`namedWindow`,`cv2.namedWindow("qrwindows", cv2.WINDOW_NORMAL)`)
         //Generator.addCode(`cv2.destroyWindow('qrwindows')`)
         Generator.addCode(`cv2.destroyAllWindows()`)
 
@@ -102,7 +83,7 @@ qrimg_src = qrimg_src[ymin:ymin+h, xmin:xmin+w]`)
     export function noteSep2() {}
 
 
-    //% block="识别读取的图片中的二维码" blockType="command"
+    //% block="Recognize the QR code in the read image" blockType="command"
     export function decode(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
         Generator.addCode(`qrcode_val = decode(qrimg_src)`)
@@ -141,21 +122,21 @@ if len(qrcode_val) > 0:
     //% block="---"
     export function noteSep3(){}
 
-    //%block="图片中存在二维码？" blockType="boolean"
+    //%block="Is there a QR code in the picture?" blockType="boolean"
     export function qrcodeAvailable(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
         Generator.addCode(`len(qrcode_val)>0`)
  
     } 
 
-    //%block="图片中二维码的数量" blockType="reporter"
+    //%block="The number of QR codes in the picture" blockType="reporter"
     export function qrcodeCount(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
         Generator.addCode(`len(qrcode_val)`)
  
     } 
 
-    //%block="从识别结果中取第[INDEX]个二维码的[VAL]值" blockType="reporter"
+    //%block="Get the [VAL] value of the [INDEX]th QR code from the recognition result" blockType="reporter"
     //% INDEX.shadow="number" INDEX.defl="1"
     //% VAL.shadow="dropdown" VAL.options="VAL"
     export function decodeRead(parameter: any, block: any) {
@@ -169,7 +150,7 @@ if len(qrcode_val) > 0:
 
 
     function replaceQuotationMarks(str:string){
-            str=str.replace(/"/g, ""); //去除所有引号
+            str=str.replace(/"/g, ""); 
             return str
     }
 

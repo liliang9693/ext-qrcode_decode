@@ -1,4 +1,16 @@
 {
+
+    "qrcodedecode.read|block": "读取本地图片[PATH]",
+    "qrcodedecode.readcap|block": "初始化摄像头 编号[CAMNUM] 像素宽[W]高[H]",
+    "qrcodedecode.colsecapcapture|block": "关闭摄像头",
+    "qrcodedecode.readcapcapture|block": "读取摄像头一帧图片",
+    "qrcodedecode.imshow|block": "显示识别窗口",
+    "qrcodedecode.imdestroy|block": "关闭识别窗口",
+    "qrcodedecode.decode|block": "识别读取的图片中的二维码",
+    "qrcodedecode.qrcodeAvailable|block": "图片中存在二维码？",
+    "qrcodedecode.qrcodeCount|block": "图片中二维码的数量",
+    "qrcodedecode.decodeRead|block": "从识别结果中取第[INDEX]个二维码的[VAL]值",
+
     "qrcodedecode.VAL.all|menu": "原始输出",
     "qrcodedecode.VAL.value|menu": "数据",
     "qrcodedecode.VAL.type|menu": "编码类型",

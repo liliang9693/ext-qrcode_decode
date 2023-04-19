@@ -29,7 +29,7 @@
 如果在行空板中使用，则需要先安装pyzbar库：
 
 **方法1:** 离线安装
-- 下载[**二维码识别库安装2.mp 点击下载**](https://gitee.com/liliang9693/ext-qrcode_decode/releases/download/v0.0.2/%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%AF%86%E5%88%AB%E5%BA%93%E5%AE%89%E8%A3%852.mp)，用mind+打开。
+- 下载**二维码识别库安装3.mp**，用mind+打开。
 - 切换到**代码模式**，打开**安装库**文件夹，双击打开**安装库 . py**，然后**连接行空板**，**运行**，等待安装完成即可
 ![](./安装库.png)
 
@@ -42,6 +42,7 @@
 - 然后复制如下命令到终端中回车运行，等待代码执行完毕：   
  ```pip install pyzbar```
 
+**方法3:** 更新行空板系统镜像到0.3.5及以上版本（内置了pyzbar库）
 
 
 **使用教程**：
@@ -62,17 +63,27 @@
 > 调用摄像头进行实时解码
 
 ![](./python/_images/example2.png)
+
+> 用按键开关二维码识别功能
+
+![](./python/_images/examples3.png)
+
+
+
+
+
 ## License
 
 MIT
 
 ## Supported targets
 
-MCU                | JavaScript    | Arduino   | MicroPython    | Python 
------------------- | :----------: | :----------: | :---------: | -----
-arduino        |             |              |             | 
-micro:bit        |             |              |             | 
-esp32        |             |              |             | 
+|MCU                | JavaScript    | Arduino   | MicroPython    | Python |
+|------------------ | :----------: | :----------: | :---------: | :-----:|
+|arduino        |             |              |             |  |
+|micro:bit        |             |              |             |  |
+|esp32        |             |              |             |  |
+|unihiker     |             |              |             | √ |
 
 ## Release Logs
 
@@ -81,3 +92,5 @@ esp32        |             |              |             |
 * V0.0.2  解决摄像头continu报错
 
 * V0.0.3  解决摄像头显示问题（行空板）
+
+* V0.0.3  调整窗口显示生成代码,多语言处理
