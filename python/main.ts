@@ -43,12 +43,14 @@ else:
         
     Generator.addCode(`cv2.setWindowProperty("qrwindows", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)`)
     }
-    //% block=""Close the camera" blockType="command"
+
+    //% block="Close the camera" blockType="command"
     export function colsecapcapture(parameter: any, block: any) {
        
         Generator.addCode(`cap.release()`)
 
     }
+    
     //% block="Read a frame from the camera" blockType="command"
     export function readcapcapture(parameter: any, block: any) {
         Generator.addImport(`import cv2\nimport numpy as np\nfrom pyzbar.pyzbar import decode`)
